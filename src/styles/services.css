@@ -5,7 +5,7 @@
   width: 100vw;
   height: 100vh;
   flex-shrink: 0;
-  background-color: #0b0f14;
+  background-color: #071714;
   overflow: hidden;
   border-left: 1px solid rgba(53, 79, 82, 0.15);
   z-index: 10;
@@ -174,7 +174,7 @@
 
 .orbit-card:hover .card-icon-container {
   background-color: #84a98c;
-  color: #0b0f14;
+  color: #071714;
 }
 
 .card-number {

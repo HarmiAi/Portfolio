@@ -59,7 +59,7 @@ const Loader = () => {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0b0f14]"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#071714]"
     >
       <div className="relative flex flex-col items-center select-none">
         <h1 className="flex overflow-hidden text-3xl sm:text-5xl font-black tracking-widest text-[#f8fafc] font-sans">

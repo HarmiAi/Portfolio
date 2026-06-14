@@ -49,7 +49,7 @@ const ProjectsSection = () => {
   return (
     <section 
       id="projects-section"
-      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 bg-[#0b0f14] overflow-hidden border-b md:border-b-0 md:border-l border-[#354f52]/10 z-10"
+      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 bg-[#071714] overflow-hidden border-b md:border-b-0 md:border-l border-[#354f52]/10 z-10"
     >
       {/* Mobile layout: stacked view */}
       <div className="block md:hidden px-6 py-20 space-y-20">
@@ -74,7 +74,7 @@ const ProjectsSection = () => {
               </div>
             </div>
 
-            <div className="w-full h-[220px] rounded-xl bg-[#0f1720] border border-[#354f52]/20 flex items-center justify-center p-4">
+            <div className="w-full h-[220px] rounded-xl bg-[#071714] border border-[#354f52]/20 flex items-center justify-center p-4">
               {project.mockupType === "restaurant" && <div className="text-[#84a98c] text-xs font-mono">Restaurant AR Platform Mockup</div>}
               {project.mockupType === "dashboard" && <div className="text-[#84a98c] text-xs font-mono">Firebase Sync Graph</div>}
               {project.mockupType === "finance" && <div className="text-[#84a98c] text-xs font-mono">Redux Financial Charts</div>}
@@ -175,11 +175,11 @@ const ProjectsSection = () => {
 
             {/* Right Column: Visual Mockup (6 columns) */}
             <div className="col-span-6 flex items-center justify-center">
-              <div className="w-[90%] xl:w-[85%] aspect-[4/3] rounded-2xl border border-[#354f52]/40 bg-[#0f1720]/80 shadow-2xl backdrop-blur-md relative overflow-hidden flex items-center justify-center p-6 hover:border-[#84a98c]/35 transition-all duration-500">
+              <div className="w-[90%] xl:w-[85%] aspect-[4/3] rounded-2xl border border-[#354f52]/40 bg-[#071714]/80 shadow-2xl backdrop-blur-md relative overflow-hidden flex items-center justify-center p-6 hover:border-[#84a98c]/35 transition-all duration-500">
                 
                 {project.mockupType === "restaurant" && (
                   <div className="w-full h-full relative">
-                    <div className="absolute left-0 bottom-0 w-[60%] p-4 rounded-xl bg-[#0b0f14]/80 border border-[#354f52]/30 space-y-3 z-10">
+                    <div className="absolute left-0 bottom-0 w-[60%] p-4 rounded-xl bg-[#071714]/80 border border-[#354f52]/30 space-y-3 z-10">
                       <div className="flex items-center justify-between text-[10px] font-mono border-b border-[#354f52]/20 pb-1.5 text-[#cad2c5]/40 font-sans">
                         <span>sales_db.sql</span>
                         <span className="text-[#84a98c] font-bold font-sans">ACTIVE</span>
@@ -207,20 +207,20 @@ const ProjectsSection = () => {
                       <span className="text-[#84a98c]">ONLINE</span>
                     </div>
                     <div className="grid grid-cols-3 gap-3 my-auto">
-                      <div className="p-3 rounded-lg bg-[#0b0f14]/80 border border-[#354f52]/20">
+                      <div className="p-3 rounded-lg bg-[#071714]/80 border border-[#354f52]/20">
                         <p className="text-[9px] text-[#cad2c5]/40 uppercase font-sans">Sessions</p>
                         <p className="text-base font-bold text-[#f8fafc] mt-1 font-sans">1,402</p>
                       </div>
-                      <div className="p-3 rounded-lg bg-[#0b0f14]/80 border border-[#354f52]/20">
+                      <div className="p-3 rounded-lg bg-[#071714]/80 border border-[#354f52]/20">
                         <p className="text-[9px] text-[#cad2c5]/40 uppercase font-sans">DB Sync</p>
                         <p className="text-base font-bold text-[#84a98c] mt-1 font-sans">0.4ms</p>
                       </div>
-                      <div className="p-3 rounded-lg bg-[#0b0f14]/80 border border-[#354f52]/20">
+                      <div className="p-3 rounded-lg bg-[#071714]/80 border border-[#354f52]/20">
                         <p className="text-[9px] text-[#cad2c5]/40 uppercase font-sans">CPU Load</p>
                         <p className="text-base font-bold text-[#f8fafc] mt-1 font-sans">12%</p>
                       </div>
                     </div>
-                    <div className="w-full h-12 border border-[#354f52]/20 bg-[#0b0f14]/50 rounded flex items-center justify-center text-[10px] text-[#cad2c5]/50 font-sans">
+                    <div className="w-full h-12 border border-[#354f52]/20 bg-[#071714]/50 rounded flex items-center justify-center text-[10px] text-[#cad2c5]/50 font-sans">
                       Sync Status: All security rules audited.
                     </div>
                   </div>
@@ -258,7 +258,7 @@ const ProjectsSection = () => {
                       <span className="text-[#cad2c5]/40">// shop_checkout</span>
                       <span className="text-[#84a98c] font-bold font-sans">STRIPE</span>
                     </div>
-                    <div className="p-4 rounded-xl bg-[#0b0f14]/80 border border-[#354f52]/20 space-y-3 my-auto">
+                    <div className="p-4 rounded-xl bg-[#071714]/80 border border-[#354f52]/20 space-y-3 my-auto">
                       <div className="flex items-center justify-between text-[10px] font-sans">
                         <span className="text-[#cad2c5]">Subtotal</span>
                         <span>$140.00</span>
@@ -272,7 +272,7 @@ const ProjectsSection = () => {
                         <span>$151.20</span>
                       </div>
                     </div>
-                    <div className="w-full py-2 bg-[#84a98c] text-[#0b0f14] font-bold rounded text-center text-[10px] hover:bg-[#84a98c]/90 transition-colors duration-300 font-sans">
+                    <div className="w-full py-2 bg-[#84a98c] text-[#071714] font-bold rounded text-center text-[10px] hover:bg-[#84a98c]/90 transition-colors duration-300 font-sans">
                       SECURE CHECKOUT VIA STRIPE
                     </div>
                   </div>

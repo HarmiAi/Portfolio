@@ -107,7 +107,7 @@ const ServicesSection = () => {
     return (
       <section 
         id="services-section"
-        className="w-full bg-[#0b0f14] px-6 py-20 space-y-16 border-b border-[#354f52]/10 z-20"
+        className="w-full bg-[#071714] px-6 py-20 space-y-16 border-b border-[#354f52]/10 z-20"
       >
         <div className="space-y-4 text-center">
           <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#84a98c] font-sans">
@@ -134,7 +134,7 @@ const ServicesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.08 }}
-                className="p-6 rounded-2xl border border-[#354f52]/20 bg-[#0f1720]/45 backdrop-blur-sm space-y-4 font-sans"
+                className="p-6 rounded-2xl border border-[#354f52]/20 bg-[#071714]/45 backdrop-blur-sm space-y-4 font-sans"
               >
                 <div className="flex items-center justify-between">
                   <div className="p-3 rounded-xl bg-[#84a98c]/10 text-[#84a98c]">

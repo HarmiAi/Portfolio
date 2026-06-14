@@ -34,7 +34,7 @@ const SelectedWorkSection = () => {
   return (
     <section 
       id="selected-work-section"
-      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 flex items-center bg-[#0b0f14] overflow-hidden px-6 md:px-12 lg:px-24 py-20 md:py-0 border-l border-[#354f52]/10"
+      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 flex items-center bg-[#071714] overflow-hidden px-6 md:px-12 lg:px-24 py-20 md:py-0 border-l border-[#354f52]/10"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-[20%] right-[-10%] w-[300px] h-[300px] bg-[#52796f]/5 rounded-full blur-[100px] pointer-events-none" />
@@ -72,7 +72,7 @@ const SelectedWorkSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-[#0f1720]/30 border border-[#354f52]/20 hover:border-[#84a98c]/40 hover:scale-[1.02] hover:-translate-y-2 transition-all duration-500 overflow-hidden"
+              className="group relative flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-[#071714]/30 border border-[#354f52]/20 hover:border-[#84a98c]/40 hover:scale-[1.02] hover:-translate-y-2 transition-all duration-500 overflow-hidden"
               style={{
                 willChange: "transform, border-color"
               }}

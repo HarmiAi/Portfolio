@@ -34,7 +34,7 @@ const ContactSection = () => {
   return (
     <section 
       id="contact-section"
-      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 flex items-center bg-[#0b0f14] overflow-hidden px-6 md:px-12 lg:px-24 py-20 md:py-0 border-b md:border-b-0 md:border-l border-[#354f52]/10 z-10"
+      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 flex items-center bg-[#071714] overflow-hidden px-6 md:px-12 lg:px-24 py-20 md:py-0 border-b md:border-b-0 md:border-l border-[#354f52]/10 z-10"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-[30%] left-[-10%] w-[350px] h-[350px] bg-[#354f52]/5 rounded-full blur-[120px] pointer-events-none z-0" />
@@ -77,7 +77,7 @@ const ContactSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                className="group relative flex items-center justify-between p-4 sm:p-8 rounded-2xl bg-[#0f1720]/30 border border-[#354f52]/20 hover:border-[#84a98c]/50 hover:bg-[#0f1720]/50 transition-all duration-500 overflow-hidden font-sans"
+                className="group relative flex items-center justify-between p-4 sm:p-8 rounded-2xl bg-[#071714]/30 border border-[#354f52]/20 hover:border-[#84a98c]/50 hover:bg-[#071714]/50 transition-all duration-500 overflow-hidden font-sans"
               >
                 {/* Custom inner glow */}
                 <div 
@@ -86,7 +86,7 @@ const ContactSection = () => {
                 />
 
                 <div className="flex items-center space-x-4">
-                  <div className="p-3.5 rounded-xl bg-[#84a98c]/10 text-[#84a98c] group-hover:bg-[#84a98c] group-hover:text-[#0b0f14] transition-all duration-500">
+                  <div className="p-3.5 rounded-xl bg-[#84a98c]/10 text-[#84a98c] group-hover:bg-[#84a98c] group-hover:text-[#071714] transition-all duration-500">
                     <Icon className="text-xl sm:text-2xl" />
                   </div>
                   <div>

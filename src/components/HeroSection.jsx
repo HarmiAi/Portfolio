@@ -41,14 +41,14 @@ const HeroSection = () => {
           opacity: 0.05,
           ease: "power1.inOut"
         }, 0)
-        // Image wrapper moves left, while inner image reveals its remaining 20% (translateX 20% to 0%)
+        // Background portrait translates slower to the right for deep horizontal parallax exit
         .to("#hero-portrait-wrapper-v2", {
-          x: -60,
-          ease: "power1.inOut"
+          x: 80,
+          ease: "none"
         }, 0)
         .to("#hero-portrait-inner", {
-          x: '0%',
-          ease: "power1.out"
+          xPercent: 15,
+          ease: "none"
         }, 0);
 
       });
@@ -63,21 +63,56 @@ const HeroSection = () => {
   return (
     <section 
       id="hero-section"
-      className="section-container bg-dark border-b border-[#354f52]/10"
-      style={{ height: isMobile ? 'auto' : '100vh' }}
+      className="relative w-full md:w-screen h-screen flex-shrink-0 bg-[#071714] overflow-hidden border-b border-[#354f52]/10 z-10"
     >
-      {/* Background glow orb */}
-      <div className="absolute top-[-30%] left-[-10%] w-[60%] h-[60%] bg-[#354f52]/10 rounded-full blur-[130px] pointer-events-none z-0" />
+      {/* Layer 1: Atmospheric background animated WebP video (loaded globally in page background) */}
 
-      {/* Main layout container (using semantic styling) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center z-10 px-6 py-20 lg:py-0 md:px-12 lg:px-24">
-        
-        {/* Left Side: Content Column */}
+      {/* Layer 2: Interactive Portrait Full-Screen Background */}
+      <div
+        id="hero-portrait-wrapper-v2"
+        className="absolute inset-0 w-full h-full z-0 select-none pointer-events-auto"
+        style={{ willChange: 'transform' }}
+      >
+        <div
+          id="hero-portrait-inner"
+          className="w-full h-full"
+          style={{ willChange: 'transform' }}
+        >
+          <InteractivePortrait 
+            fullBleed={true} 
+            className="w-full h-full scale-[1.01]" 
+          />
+        </div>
+      </div>
+
+      {/* Layer 3: Ambient Glow Discs */}
+      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#354f52]/10 rounded-full blur-[130px] pointer-events-none z-1" />
+
+      {/* Layer 4: Gradient Overlays for Text Legibility (Vignettes) */}
+      {/* Horizontal Gradient (Left-to-Right) */}
+      <div 
+        className="absolute inset-0 z-5 pointer-events-none"
+        style={{
+          background: isMobile
+            ? "linear-gradient(180deg, rgba(11, 15, 20, 0.85) 0%, rgba(11, 15, 20, 0.65) 50%, rgba(11, 15, 20, 0.85) 100%)"
+            : "linear-gradient(90deg, rgba(11, 15, 20, 0.92) 0%, rgba(11, 15, 20, 0.7) 35%, rgba(11, 15, 20, 0.3) 70%, transparent 100%)"
+        }}
+      />
+      {/* Bottom Gradient Vignette (Transitions smoothly to next vertical section) */}
+      <div 
+        className="absolute inset-0 z-5 pointer-events-none"
+        style={{
+          background: "linear-gradient(180deg, transparent 75%, #071714 100%)"
+        }}
+      />
+
+      {/* Layer 5: Hero content layout overlay (centered flex container) */}
+      <div className="absolute inset-0 z-10 flex items-center px-6 md:px-12 lg:px-24 pointer-events-none py-20 lg:py-0">
         <div 
           id="hero-content-left"
-          className="lg:col-span-7 flex flex-col justify-center space-y-6 md:space-y-8"
+          className="max-w-2xl lg:max-w-3xl flex flex-col justify-center space-y-6 md:space-y-8 pointer-events-none"
         >
-          {/* Label */}
+          {/* Small Label */}
           <motion.div
             initial={{ opacity: 0, x: -25 }}
             animate={{ opacity: 1, x: 0 }}
@@ -85,21 +120,21 @@ const HeroSection = () => {
             className="flex items-center space-x-2"
           >
             <span className="w-2 h-2 rounded-full bg-[#84a98c] animate-pulse shadow-[0_0_8px_#84a98c]" />
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#84a98c] font-sans">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#84a98c] font-sans">
               FULL STACK DEVELOPER
             </span>
           </motion.div>
 
-          {/* Heading in Morganite Black */}
+          {/* Main Heading in Morganite Black */}
           <div className="overflow-hidden">
-            <h1 className="Morganite-heading text-[clamp(2.5rem,14vw,11rem)] uppercase select-none">
+            <h1 className="Morganite-heading text-[clamp(3rem,14vw,9.5rem)] uppercase leading-none tracking-wide text-white">
               <AnimatedText text="Harmi Pagada" type="letter" delay={0.2} />
             </h1>
           </div>
 
-          {/* Subheading */}
-          <div className="max-w-xl">
-            <h2 className="text-lg sm:text-2xl font-medium text-[#cad2c5] leading-relaxed font-sans">
+          {/* Supporting Heading */}
+          <div className="max-w-2xl">
+            <h2 className="text-lg sm:text-2xl font-bold text-[#f8fafc] leading-snug font-sans">
               <AnimatedText 
                 text="Building impactful digital products through code, creativity, and emerging technologies."
                 delay={0.4}
@@ -108,15 +143,25 @@ const HeroSection = () => {
             </h2>
           </div>
 
-          {/* Premium CTA Buttons with Tooltips */}
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 0.8, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-xs sm:text-sm font-light text-[#cad2c5] leading-relaxed max-w-xl font-sans"
+          >
+            Full Stack Developer specializing in React, Node.js, AI integrations, and immersive digital experiences.
+          </motion.p>
+
+          {/* Premium CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
-            className="flex flex-wrap gap-4 items-center pt-2"
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+            className="flex flex-wrap gap-4 items-center pt-2 pointer-events-auto"
           >
             <PremiumButton 
-              href="#about-vertical-section" 
+              href="#about-section" 
               icon={FiArrowRight}
               data-tooltip="View About & Mission"
             >
@@ -133,33 +178,8 @@ const HeroSection = () => {
           </motion.div>
 
         </div>
-
-        {/* Right Side: Portrait Image Column */}
-        <div className="lg:col-span-5 h-[50vh] md:h-[65vh] lg:h-screen relative flex items-center justify-center lg:justify-end overflow-visible">
-          {/* Soft background gradient */}
-          <div className="absolute top-1/2 right-[-20%] -translate-y-1/2 w-[140%] h-[140%] bg-radial-accent opacity-75 pointer-events-none z-0" />
-
-          {/* Portrait Wrapper */}
-          <div
-            id="hero-portrait-wrapper-v2"
-            className="relative h-full w-[90%] sm:w-[75%] lg:w-[130%] xl:w-[115%] flex items-center z-10 select-none"
-            style={{
-              willChange: 'transform',
-            }}
-          >
-            <div
-              id="hero-portrait-inner"
-              className="w-full h-full"
-              style={{
-                willChange: 'transform'
-              }}
-            >
-              <InteractivePortrait className="h-[45vh] md:h-[55vh] lg:h-[85vh] w-full" />
-            </div>
-          </div>
-        </div>
-
       </div>
+
     </section>
   );
 };

@@ -77,7 +77,7 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="relative min-h-screen bg-[#0b0f14] text-[#f8fafc]"
+          className="relative min-h-screen bg-[#071714] text-[#f8fafc]"
         >
           {/* Animated WebP Background Overlay */}
           <div 
@@ -114,7 +114,7 @@ const Home = () => {
           <div className="ambient-grid animate-pulse-soft" />
 
           {/* Footer for mobile/tablet stack only (Desktop has absolute footer inside ContactSection) */}
-          <footer className="relative w-full py-6 text-center text-[10px] text-[#cad2c5]/35 bg-[#0b0f14] border-t border-[#354f52]/10 z-30 select-none block md:hidden">
+          <footer className="relative w-full py-6 text-center text-[10px] text-[#cad2c5]/35 bg-[#071714] border-t border-[#354f52]/10 z-30 select-none block md:hidden">
             <p>© {new Date().getFullYear()} Harmi Pagada. Crafted with Passion & Precision.</p>
           </footer>
         </motion.div>

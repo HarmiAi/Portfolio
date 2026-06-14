@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-const InteractivePortrait = ({ className = "", style = {}, ...props }) => {
+const InteractivePortrait = ({ className = "", style = {}, fullBleed = false, ...props }) => {
   const containerRef = useRef(null);
   const layer2Ref = useRef(null);
   
@@ -47,7 +47,7 @@ const InteractivePortrait = ({ className = "", style = {}, ...props }) => {
       const rect = container.getBoundingClientRect();
       const coords = coordsRef.current;
       coords.isHovered = true;
-      coords.targetRadius = 160; // radius of reveal bubble
+      coords.targetRadius = fullBleed ? 260 : 160; // radius of reveal bubble
       coords.targetX = e.clientX - rect.left;
       coords.targetY = e.clientY - rect.top;
       // Instantly place coordinates first time to avoid dragging from (0,0)
@@ -105,7 +105,7 @@ const InteractivePortrait = ({ className = "", style = {}, ...props }) => {
   return (
     <div 
       ref={containerRef}
-      className={`relative w-full h-full rounded-[24px] lg:rounded-l-[80px] lg:rounded-r-none overflow-hidden border border-[#354f52]/40 bg-[#0f1720] ${className}`}
+      className={`relative w-full h-full ${fullBleed ? 'rounded-none border-none' : 'rounded-[24px] lg:rounded-l-[80px] lg:rounded-r-none border border-[#354f52]/40'} overflow-hidden bg-[#071714] ${className}`}
       style={{
         ...style,
         willChange: 'transform',
@@ -114,9 +114,9 @@ const InteractivePortrait = ({ className = "", style = {}, ...props }) => {
     >
       {/* Layer 1: Professional Portrait */}
       <img
-        src="/girl_portrait.png"
+        src="/girl-normal.png"
         alt="Harmi Pagada original portrait"
-        className="w-full h-full object-cover object-center grayscale scale-102 select-none"
+        className="w-full h-full object-cover object-center scale-102 select-none"
         draggable="false"
       />
 
@@ -130,7 +130,7 @@ const InteractivePortrait = ({ className = "", style = {}, ...props }) => {
         }}
       >
         <img
-          src="/girl_portrait_futuristic.png"
+          src="/girl-robotic.png"
           alt="Harmi Pagada tech portrait"
           className="w-full h-full object-cover object-center scale-102 select-none"
           draggable="false"
@@ -141,10 +141,14 @@ const InteractivePortrait = ({ className = "", style = {}, ...props }) => {
       <div className="absolute inset-0 bg-[linear-gradient(125deg,rgba(255,255,255,0.05)_0%,transparent_60%)] pointer-events-none z-20" />
 
       {/* Luxury Editorial Corner Frames */}
-      <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-[#84a98c]/50 pointer-events-none z-20" />
-      <div className="absolute top-4 right-4 w-5 h-5 border-t-2 border-r-2 border-[#84a98c]/50 pointer-events-none z-20" />
-      <div className="absolute bottom-4 left-4 w-5 h-5 border-b-2 border-l-2 border-[#84a98c]/50 pointer-events-none z-20" />
-      <div className="absolute bottom-4 right-4 w-5 h-5 border-b-2 border-r-2 border-[#84a98c]/50 pointer-events-none z-20" />
+      {!fullBleed && (
+        <>
+          <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-[#84a98c]/50 pointer-events-none z-20" />
+          <div className="absolute top-4 right-4 w-5 h-5 border-t-2 border-r-2 border-[#84a98c]/50 pointer-events-none z-20" />
+          <div className="absolute bottom-4 left-4 w-5 h-5 border-b-2 border-l-2 border-[#84a98c]/50 pointer-events-none z-20" />
+          <div className="absolute bottom-4 right-4 w-5 h-5 border-b-2 border-r-2 border-[#84a98c]/50 pointer-events-none z-20" />
+        </>
+      )}
 
       {/* Soft overlay borders inside */}
       <div className="absolute inset-0 border border-white/5 pointer-events-none z-20" />

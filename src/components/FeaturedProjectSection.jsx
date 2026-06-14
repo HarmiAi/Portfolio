@@ -16,7 +16,7 @@ const FeaturedProjectSection = () => {
   return (
     <section 
       id="featured-project-section"
-      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 flex items-center bg-[#0b0f14] overflow-hidden px-6 md:px-12 lg:px-24 py-20 md:py-0 border-l border-[#354f52]/10"
+      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 flex items-center bg-[#071714] overflow-hidden px-6 md:px-12 lg:px-24 py-20 md:py-0 border-l border-[#354f52]/10"
     >
       {/* Background ambient light */}
       <div className="absolute top-[10%] left-[20%] w-[400px] h-[400px] bg-[#84a98c]/5 rounded-full blur-[120px] pointer-events-none" />
@@ -82,7 +82,7 @@ const FeaturedProjectSection = () => {
             <MagneticButton>
               <a
                 href="#"
-                className="group relative flex items-center space-x-2 px-5 py-3 bg-[#84a98c] text-[#0b0f14] font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_15px_rgba(132,169,140,0.5)]"
+                className="group relative flex items-center space-x-2 px-5 py-3 bg-[#84a98c] text-[#071714] font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_15px_rgba(132,169,140,0.5)]"
               >
                 <span>Live Demo</span>
                 <FiExternalLink />
@@ -111,7 +111,7 @@ const FeaturedProjectSection = () => {
             whileInView={{ opacity: 1, y: 0, rotate: -2 }}
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 60, damping: 15, delay: 0.3 }}
-            className="absolute left-[5%] w-[65%] sm:w-[55%] lg:w-[65%] p-5 rounded-2xl bg-[#0f1720]/80 border border-[#354f52]/40 shadow-2xl backdrop-blur-md z-10 animate-float"
+            className="absolute left-[5%] w-[65%] sm:w-[55%] lg:w-[65%] p-5 rounded-2xl bg-[#071714]/80 border border-[#354f52]/40 shadow-2xl backdrop-blur-md z-10 animate-float"
           >
             {/* Window buttons decoration */}
             <div className="flex items-center space-x-1.5 pb-4 border-b border-[#354f52]/30">
@@ -140,11 +140,11 @@ const FeaturedProjectSection = () => {
               
               {/* Statistics */}
               <div className="grid grid-cols-2 gap-2 text-[10px]">
-                <div className="p-2 rounded bg-[#0b0f14]/60 border border-[#354f52]/20">
+                <div className="p-2 rounded bg-[#071714]/60 border border-[#354f52]/20">
                   <p className="text-[#cad2c5]/40">Active Tables</p>
                   <p className="font-bold text-sm text-[#f8fafc]">14 / 20</p>
                 </div>
-                <div className="p-2 rounded bg-[#0b0f14]/60 border border-[#354f52]/20">
+                <div className="p-2 rounded bg-[#071714]/60 border border-[#354f52]/20">
                   <p className="text-[#cad2c5]/40">Pending Orders</p>
                   <p className="font-bold text-sm text-[#84a98c]">4 New</p>
                 </div>

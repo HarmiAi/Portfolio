@@ -8,7 +8,7 @@ const ResumeSection = () => {
   return (
     <section 
       id="resume-section"
-      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 flex items-center bg-[#0b0f14] overflow-hidden px-6 md:px-12 lg:px-24 py-20 md:py-0 border-b md:border-b-0 md:border-l border-[#354f52]/10 z-10"
+      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 flex items-center bg-[#071714] overflow-hidden px-6 md:px-12 lg:px-24 py-20 md:py-0 border-b md:border-b-0 md:border-l border-[#354f52]/10 z-10"
     >
       {/* Background drifting orb */}
       <div className="absolute top-[20%] right-[10%] w-[350px] h-[350px] bg-[#52796f]/5 rounded-full blur-[110px] pointer-events-none z-0" />

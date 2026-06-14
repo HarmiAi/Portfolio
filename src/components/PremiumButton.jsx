@@ -44,7 +44,7 @@ const PremiumButton = ({ children, icon: Icon, href, onClick, className = "", ..
       {/* Label Text */}
       <motion.span 
         className="relative z-10 font-sans font-bold text-xs tracking-widest uppercase transition-colors"
-        animate={{ color: isHovered ? '#0b0f14' : '#f8fafc' }}
+        animate={{ color: isHovered ? '#071714' : '#f8fafc' }}
         transition={{ duration: 0.5 }}
       >
         {children}
@@ -58,7 +58,7 @@ const PremiumButton = ({ children, icon: Icon, href, onClick, className = "", ..
             className="flex items-center justify-center w-full h-full text-[#f8fafc]"
             animate={{ 
               x: isHovered ? [0, 26, -26, 0] : 0,
-              color: isHovered ? '#0b0f14' : '#f8fafc',
+              color: isHovered ? '#071714' : '#f8fafc',
               backgroundColor: isHovered ? '#f8fafc' : '#11161d'
             }}
             transition={{ 
@@ -74,7 +74,7 @@ const PremiumButton = ({ children, icon: Icon, href, onClick, className = "", ..
     </>
   );
 
-  const wrapperClasses = `relative overflow-hidden inline-flex items-center pl-6 pr-2.5 py-2 rounded-full bg-[#0b0f14] border border-[#354f52]/40 shadow-lg cursor-pointer select-none ${className}`;
+  const wrapperClasses = `relative overflow-hidden inline-flex items-center pl-6 pr-2.5 py-2 rounded-full bg-[#071714] border border-[#354f52]/40 shadow-lg cursor-pointer select-none ${className}`;
 
   if (href) {
     return (

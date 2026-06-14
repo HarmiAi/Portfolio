@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "./styles/portfolio.css";
+
+/* Base variables override and body default rules */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis-target {
+  scroll-behavior: auto !important;
+}
+
+.lenis-smooth iframe {
+  pointer-events: none;
+}

@@ -1,0 +1,261 @@
+/* stylesheet for Services (What I Build) Section */
+
+.services-panel {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  background-color: #0b0f14;
+  overflow: hidden;
+  border-left: 1px solid rgba(53, 79, 82, 0.15);
+  z-index: 10;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Background Drifting Glow Orbs */
+.services-bg-glow-1 {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: min(35vw, 450px);
+  height: min(35vw, 450px);
+  background: radial-gradient(circle, rgba(82, 121, 111, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(60px);
+}
+
+.services-bg-glow-2 {
+  position: absolute;
+  bottom: 15%;
+  right: 15%;
+  width: min(30vw, 400px);
+  height: min(30vw, 400px);
+  background: radial-gradient(circle, rgba(53, 79, 82, 0.12) 0%, transparent 75%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+}
+
+/* Center Editorial Content Wrapper */
+.services-center-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(90vw, 360px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.services-eyebrow {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #84a98c;
+  margin-bottom: 8px;
+}
+
+.services-title {
+  font-family: 'Morganite', 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 9.5vw, 7.8rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0 0 16px 0;
+}
+
+.services-desc {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #cad2c5;
+  max-width: 290px;
+  margin-bottom: 24px;
+}
+
+/* Responsive Elliptical Cards Layout */
+.orbit-card {
+  position: absolute;
+  width: 240px;
+  min-height: 140px;
+  border-radius: 16px;
+  border: 1px solid rgba(53, 79, 82, 0.25);
+  background: rgba(15, 23, 32, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 20px;
+  z-index: 10;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  
+  /* Collision-free transforms combining GSAP variables and parallax variables */
+  left: 50%;
+  top: 50%;
+  transform: translate(
+    calc(-50% + var(--card-x, 0px) + var(--parallax-x, 0px)), 
+    calc(-50% + var(--card-y, 0px) + var(--parallax-y, 0px))
+  ) scale(var(--card-scale, 1));
+  opacity: var(--card-opacity, 0);
+  
+  transition: 
+    border-color 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    background-color 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform, opacity;
+}
+
+/* Hover States for Glassmorphic Cards */
+.orbit-card:hover {
+  border-color: rgba(132, 169, 140, 0.75);
+  background-color: rgba(15, 23, 32, 0.82);
+  z-index: 35;
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 25px rgba(132, 169, 140, 0.18);
+}
+
+/* Hover Glow Pseudo Element Backdrop */
+.orbit-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(132, 169, 140, 0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.orbit-card:hover::before {
+  opacity: 1;
+}
+
+/* Card Structure */
+.card-content-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: rgba(132, 169, 140, 0.1);
+  color: #84a98c;
+  transition: 
+    background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.orbit-card:hover .card-icon-container {
+  background-color: #84a98c;
+  color: #0b0f14;
+}
+
+.card-number {
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(132, 169, 140, 0.4);
+  transition: color 0.4s ease;
+}
+
+.orbit-card:hover .card-number {
+  color: rgba(132, 169, 140, 0.85);
+}
+
+.card-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-title {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+  transition: color 0.3s ease;
+}
+
+.orbit-card:hover .card-title {
+  color: #84a98c;
+}
+
+.card-default-desc {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: rgba(202, 210, 197, 0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.card-hover-details {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 10.5px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #cad2c5;
+  border-top: 1px solid rgba(53, 79, 82, 0.25);
+  padding-top: 8px;
+  margin-top: 2px;
+  display: none;
+  opacity: 0;
+  transform: translateY(4px);
+  animation: cardFadeInUp 0.35s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.orbit-card:hover .card-default-desc {
+  display: none;
+}
+
+.orbit-card:hover .card-hover-details {
+  display: block;
+}
+
+@keyframes cardFadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet responsiveness: slightly smaller dimensions */
+@media (max-width: 1024px) {
+  .orbit-card {
+    width: 210px;
+    min-height: 120px;
+    padding: 16px;
+  }
+  .services-title {
+    font-size: clamp(2.2rem, 8vw, 6rem);
+  }
+}

@@ -114,7 +114,7 @@ const InteractivePortrait = ({ className = "", style = {}, ...props }) => {
     >
       {/* Layer 1: Professional Portrait */}
       <img
-        src="/portrait.png"
+        src="/girl_portrait.png"
         alt="Harmi Pagada original portrait"
         className="w-full h-full object-cover object-center grayscale scale-102 select-none"
         draggable="false"
@@ -130,7 +130,7 @@ const InteractivePortrait = ({ className = "", style = {}, ...props }) => {
         }}
       >
         <img
-          src="/portrait_futuristic.png"
+          src="/girl_portrait_futuristic.png"
           alt="Harmi Pagada tech portrait"
           className="w-full h-full object-cover object-center scale-102 select-none"
           draggable="false"

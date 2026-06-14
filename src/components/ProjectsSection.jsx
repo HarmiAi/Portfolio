@@ -49,7 +49,7 @@ const ProjectsSection = () => {
   return (
     <section 
       id="projects-section"
-      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 bg-[#0b0f14] overflow-hidden border-l border-[#354f52]/10 z-10"
+      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 bg-[#0b0f14] overflow-hidden border-b md:border-b-0 md:border-l border-[#354f52]/10 z-10"
     >
       {/* Mobile layout: stacked view */}
       <div className="block md:hidden px-6 py-20 space-y-20">
@@ -81,7 +81,7 @@ const ProjectsSection = () => {
               {project.mockupType === "ecommerce" && <div className="text-[#84a98c] text-xs font-mono">Stripe Checkout Simulator</div>}
             </div>
 
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap gap-3">
               <PremiumButton href={project.liveUrl} icon={FiExternalLink}>Live Demo</PremiumButton>
               <PremiumButton href={project.githubUrl} icon={FiGithub}>GitHub</PremiumButton>
             </div>
@@ -120,7 +120,7 @@ const ProjectsSection = () => {
                   PROJECT {project.num}
                 </span>
                 
-                <h3 className="Morganite-heading text-[clamp(3.5rem,8vw,7rem)] uppercase select-none">
+                <h3 className="Morganite-heading text-[clamp(2.2rem,8vw,7rem)] uppercase select-none">
                   {project.title}
                 </h3>
               </div>

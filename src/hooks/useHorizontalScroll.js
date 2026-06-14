@@ -26,7 +26,7 @@ export const useHorizontalScroll = (isLoading) => {
       // Since container has 7 panels, total width is 700vw, so translation is -600vw.
       const scrollAmount = -(container.scrollWidth - window.innerWidth);
 
-      // Create main pinned horizontal timeline
+      // Create main pinned horizontal timeline with 11 snapping points
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: trigger,
@@ -37,7 +37,7 @@ export const useHorizontalScroll = (isLoading) => {
           invalidateOnRefresh: true,
           anticipatePin: 1,
           snap: {
-            snapTo: [0, 1/9, 2/9, 3/9, 4/9, 5/9, 6/9, 7/9, 8/9, 1],
+            snapTo: [0, 1/11, 2/11, 4/11, 5/11, 6/11, 7/11, 8/11, 9/11, 10/11, 1.0],
             duration: { min: 0.15, max: 0.4 },
             delay: 0.05,
             ease: "power2.out"
@@ -45,21 +45,29 @@ export const useHorizontalScroll = (isLoading) => {
         }
       });
 
-      // Part 1: Translate panels 1, 2, 3 to Panel 4 (Hero, About, Services -> Projects)
-      // Translates x from 0 to -300vw over duration 3
+      // Part 1: Translate panels 1 & 2 to Panel 3 (Hero, About -> Services)
+      // Translates x from 0 to -200vw over duration 2
       tl.to(container, {
-        x: "-300vw",
-        duration: 3,
+        x: "-200vw",
+        duration: 2,
         ease: "none"
       }, 0);
 
-      // Part 2: Translate panels 5, 6, 7 (Skills, Resume, Contact)
-      // Translates x from -300vw to -600vw over duration 3 (starting at time 6)
+      // Part 2: Translate from Services to Projects
+      // Translates x from -200vw to -300vw over duration 1 (starting at time 4)
+      tl.to(container, {
+        x: "-300vw",
+        duration: 1,
+        ease: "none"
+      }, 4);
+
+      // Part 3: Translate from Projects to Skills, Resume, Contact
+      // Translates x from -300vw to -600vw over duration 3 (starting at time 8)
       tl.to(container, {
         x: "-600vw",
         duration: 3,
         ease: "none"
-      }, 6);
+      }, 8);
 
       // Inline Hero Portrait Parallax Animation
       // - Translates rightward slower than the container for horizontal parallax depth when exiting (0 to 1)
@@ -72,32 +80,65 @@ export const useHorizontalScroll = (isLoading) => {
         }, 0);
       }
 
-      // Projects stacked slide fades (Panel 4)
-      // We fade slides 0 to 3 in and out at timelines 3 to 6.
-      // At start (time 3): Slide 0 is active.
-      // 3 to 4: Slide 0 fades out, Slide 1 fades in.
-      tl.to(".project-slide-0", { opacity: 0, duration: 0.4, ease: "power1.inOut" }, 3.3);
-      tl.to(".project-slide-1", { opacity: 1, duration: 0.4, ease: "power1.inOut" }, 3.3);
+      // Services (What I Build) Orbital Cards Assembly Scrub (time 2 to 4)
+      const targets = [
+        { x: "-38vw", y: "2vh" },
+        { x: "-29vw", y: "20vh" },
+        { x: "-25vw", y: "-22vh" },
+        { x: "25vw", y: "-22vh" },
+        { x: "29vw", y: "20vh" },
+        { x: "38vw", y: "2vh" }
+      ];
 
-      // 4 to 5: Slide 1 fades out, Slide 2 fades in.
-      tl.to(".project-slide-1", { opacity: 0, duration: 0.4, ease: "power1.inOut" }, 4.3);
-      tl.to(".project-slide-2", { opacity: 1, duration: 0.4, ease: "power1.inOut" }, 4.3);
+      for (let i = 0; i < 6; i++) {
+        const startTime = 2.0 + i * 0.2;
+        tl.fromTo(`.orbit-card-${i}`, 
+          { 
+            "--card-x": "0vw", 
+            "--card-y": "80vh", 
+            "--card-opacity": 0, 
+            "--card-scale": 0.6 
+          },
+          { 
+            "--card-x": targets[i].x, 
+            "--card-y": targets[i].y, 
+            "--card-opacity": 1, 
+            "--card-scale": 1.0, 
+            duration: 1.2, 
+            ease: "power2.out" 
+          },
+          startTime
+        );
+      }
 
-      // 5 to 6: Slide 2 fades out, Slide 3 fades in.
-      tl.to(".project-slide-2", { opacity: 0, duration: 0.4, ease: "power1.inOut" }, 5.3);
-      tl.to(".project-slide-3", { opacity: 1, duration: 0.4, ease: "power1.inOut" }, 5.3);
+      // Services center content fade-in
+      tl.fromTo(".services-center-content",
+        { opacity: 0, scale: 0.75 },
+        { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" },
+        3.0
+      );
 
-      // Projects numbers progress indicator
+      // Projects stacked slide fades (Panel 4) - Pauses at time 5 to 8
+      tl.to(".project-slide-0", { opacity: 0, duration: 0.4, ease: "power1.inOut" }, 5.3);
+      tl.to(".project-slide-1", { opacity: 1, duration: 0.4, ease: "power1.inOut" }, 5.3);
+
+      tl.to(".project-slide-1", { opacity: 0, duration: 0.4, ease: "power1.inOut" }, 6.3);
+      tl.to(".project-slide-2", { opacity: 1, duration: 0.4, ease: "power1.inOut" }, 6.3);
+
+      tl.to(".project-slide-2", { opacity: 0, duration: 0.4, ease: "power1.inOut" }, 7.3);
+      tl.to(".project-slide-3", { opacity: 1, duration: 0.4, ease: "power1.inOut" }, 7.3);
+
+      // Projects numbers progress indicator (Shifted relative to time 5 to 8)
       tl.to(".proj-num-01", { color: "#84a98c", opacity: 1, duration: 0.1 }, 0);
       
-      tl.to(".proj-num-01", { color: "#354f52", opacity: 0.3, duration: 0.2 }, 3.3);
-      tl.to(".proj-num-02", { color: "#84a98c", opacity: 1, duration: 0.2 }, 3.3);
+      tl.to(".proj-num-01", { color: "#354f52", opacity: 0.3, duration: 0.2 }, 5.3);
+      tl.to(".proj-num-02", { color: "#84a98c", opacity: 1, duration: 0.2 }, 5.3);
 
-      tl.to(".proj-num-02", { color: "#354f52", opacity: 0.3, duration: 0.2 }, 4.3);
-      tl.to(".proj-num-03", { color: "#84a98c", opacity: 1, duration: 0.2 }, 4.3);
+      tl.to(".proj-num-02", { color: "#354f52", opacity: 0.3, duration: 0.2 }, 6.3);
+      tl.to(".proj-num-03", { color: "#84a98c", opacity: 1, duration: 0.2 }, 6.3);
 
-      tl.to(".proj-num-03", { color: "#354f52", opacity: 0.3, duration: 0.2 }, 5.3);
-      tl.to(".proj-num-04", { color: "#84a98c", opacity: 1, duration: 0.2 }, 5.3);
+      tl.to(".proj-num-03", { color: "#354f52", opacity: 0.3, duration: 0.2 }, 7.3);
+      tl.to(".proj-num-04", { color: "#84a98c", opacity: 1, duration: 0.2 }, 7.3);
 
     }, triggerRef);
 

@@ -79,6 +79,17 @@ const Home = () => {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="relative min-h-screen bg-[#0b0f14] text-[#f8fafc]"
         >
+          {/* Animated WebP Background Overlay */}
+          <div 
+            className="fixed inset-0 pointer-events-none z-0 opacity-20"
+            style={{
+              backgroundImage: "url('/hero-bg.webp')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat"
+            }}
+          />
+
           {/* Timeline Scroll Container */}
           <div ref={triggerRef} className="relative w-full h-auto md:h-screen md:overflow-hidden">
             

@@ -1,133 +1,236 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FiLayers, FiCpu, FiEye, FiTv } from 'react-icons/fi';
-import AnimatedText from './AnimatedText';
+import { FiLayers, FiCpu, FiEye, FiGlobe, FiServer, FiAward, FiArrowRight } from 'react-icons/fi';
+import PremiumButton from './PremiumButton';
+import '../styles/services.css';
 
-const services = [
+const servicesData = [
   {
     num: "01",
-    title: "Full Stack Applications",
-    desc: "Architecting secure, modular backends combined with high-fidelity React frontends. Skilled in database relationships and API design.",
-    icon: FiLayers,
-    glow: "rgba(132, 169, 140, 0.12)"
+    title: "Full Stack Apps",
+    desc: "End-to-end applications built with clean architecture and optimized databases.",
+    hoverDesc: "React, Node.js, Express, MongoDB, Firebase. Delivering robust APIs, secure sessions, and pixel-perfect design interfaces.",
+    icon: FiLayers
   },
   {
     num: "02",
-    title: "AI Integrations",
-    desc: "Connecting language models, vector search, and agentic workflows to existing apps to build smart automation and contextual user interactions.",
-    icon: FiCpu,
-    glow: "rgba(82, 121, 111, 0.12)"
+    title: "AI Experiences",
+    desc: "Custom automation workflows integrating advanced language models.",
+    hoverDesc: "Prompt orchestration, contextual vector memory embeddings, and LLM integrations for intelligent UX actions.",
+    icon: FiCpu
   },
   {
     num: "03",
     title: "AR Experiences",
-    desc: "Bridging physical and digital spaces through WebXR, interactive menus, and camera overlays for immersive retail and entertainment layouts.",
-    icon: FiEye,
-    glow: "rgba(53, 79, 82, 0.18)"
+    desc: "Interactive 3D spaces and WebXR configuration canvases.",
+    hoverDesc: "Three.js and camera layouts bringing spatial menus, topping configurators, and 3D product previews directly to browsers.",
+    icon: FiEye
   },
   {
     num: "04",
-    title: "Modern Web Platforms",
-    desc: "Creating high-performance, SEO-optimized, highly responsive client sites using optimized rendering models and smooth visual cues.",
-    icon: FiTv,
-    glow: "rgba(132, 169, 140, 0.12)"
+    title: "Modern Web Apps",
+    desc: "High-performance client sites prioritizing SEO, accessibility, and speed.",
+    hoverDesc: "React, Vite, and tailwind. Core focus on quick page speeds, fluid layouts, semantic structure, and conversion metrics.",
+    icon: FiGlobe
+  },
+  {
+    num: "05",
+    title: "Scalable Backends",
+    desc: "Secure logic engines and transactional data synchronization loops.",
+    hoverDesc: "MongoDB Atlas data schemas, REST API endpoints, real-time database webhooks, and secure user session structures.",
+    icon: FiServer
+  },
+  {
+    num: "06",
+    title: "Digital Products",
+    desc: "Polished SaaS tools and customized Shopify/WordPress CMS configurations.",
+    hoverDesc: "Tailored schemas for ReachGiant and Hicon catalogs. Fast load times, modular widgets, and optimized user landing journeys.",
+    icon: FiAward
   }
 ];
 
 const ServicesSection = () => {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20, scale: 0.96 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1,
-      transition: { type: "spring", stiffness: 100, damping: 15 }
+  const sectionRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const handleMouseMove = (e) => {
+    if (isMobile) return;
+    const container = sectionRef.current;
+    if (!container) return;
+
+    const rect = container.getBoundingClientRect();
+    const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2); // Normalized cursor -1 to 1
+    const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+
+    // Apply smooth mouse parallax coordinates via CSS variables
+    container.style.setProperty('--parallax-x', `${(x * 24).toFixed(1)}px`);
+    container.style.setProperty('--parallax-y', `${(y * 24).toFixed(1)}px`);
+  };
+
+  const handleMouseLeave = () => {
+    if (isMobile) return;
+    const container = sectionRef.current;
+    if (!container) return;
+    container.style.setProperty('--parallax-x', '0px');
+    container.style.setProperty('--parallax-y', '0px');
+  };
+
+  const handleCardMouseMove = (e) => {
+    if (isMobile) return;
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty('--mouse-x', `${x.toFixed(1)}%`);
+    card.style.setProperty('--mouse-y', `${y.toFixed(1)}%`);
+  };
+
+  const handleScrollToProjects = (e) => {
+    e.preventDefault();
+    const projectsSec = document.getElementById('projects-section');
+    if (projectsSec) {
+      projectsSec.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  return (
-    <section 
-      id="services-section"
-      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 flex items-center bg-[#0b0f14] overflow-hidden px-6 md:px-12 lg:px-24 py-20 md:py-0 border-l border-[#354f52]/10"
-    >
-      {/* Background orbs */}
-      <div className="absolute top-[30%] left-[20%] w-[300px] h-[300px] bg-[#84a98c]/5 rounded-full blur-[100px] pointer-events-none z-0" />
-
-      {/* Centered max-width content wrapper */}
-      <div className="w-full max-w-5xl mx-auto flex flex-col justify-center space-y-6 md:space-y-8 z-10">
-        
-        {/* Section Label & Title */}
-        <div className="space-y-2">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center space-x-2"
-          >
-            <span className="w-8 h-[1px] bg-[#84a98c]" />
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#84a98c] font-sans">
-              SECTION 03 // WHAT I BUILD
-            </span>
-          </motion.div>
-          
-          <h2 className="font-morganite text-[clamp(4.5rem,13vw,10rem)] font-black text-[#f8fafc] tracking-wide leading-[0.8] uppercase select-none">
-            <AnimatedText text="What I Build" type="word" delay={0.1} />
-          </h2>
+  if (isMobile) {
+    // Mobile layout: Premium vertical stacked capability cards
+    return (
+      <section 
+        id="services-section"
+        className="w-full bg-[#0b0f14] px-6 py-20 space-y-16 border-b border-[#354f52]/10 z-20"
+      >
+        <div className="space-y-4 text-center">
+          <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#84a98c] font-sans">
+            SECTION 03 // WHAT I BUILD
+          </span>
+          <h2 className="font-morganite text-5xl font-black text-[#f8fafc] uppercase">What I Build</h2>
+          <p className="text-sm text-[#cad2c5]/80 max-w-sm mx-auto leading-relaxed font-sans font-light">
+            I transform ideas into impactful digital experiences through thoughtful engineering and modern technologies.
+          </p>
+          <div className="pt-2">
+            <PremiumButton href="#projects-section" icon={FiArrowRight} onClick={handleScrollToProjects}>
+              View Projects
+            </PremiumButton>
+          </div>
         </div>
 
-        {/* Services Cards: 2x2 grid on desktop, 1x1 on mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full pt-2">
-          {services.map((service, index) => {
+        <div className="space-y-6">
+          {servicesData.map((service, index) => {
             const Icon = service.icon;
             return (
               <motion.div
                 key={index}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-30px" }}
-                className="group relative flex flex-col justify-between p-5 sm:p-6 rounded-xl bg-[#0f1720]/45 border border-[#354f52]/20 hover:border-[#84a98c]/50 transition-all duration-500 overflow-hidden"
-                style={{
-                  willChange: "transform, border-color"
-                }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+                className="p-6 rounded-2xl border border-[#354f52]/20 bg-[#0f1720]/45 backdrop-blur-sm space-y-4 font-sans"
               >
-                {/* Subtle inner hover glow */}
-                <div 
-                  className="absolute -top-10 -right-10 w-24 h-24 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-                  style={{ backgroundColor: service.glow }}
-                />
-
-                <div className="space-y-4">
-                  {/* Icon & Index */}
-                  <div className="flex items-center justify-between">
-                    <div className="p-2.5 rounded-lg bg-[#84a98c]/10 text-[#84a98c] group-hover:bg-[#84a98c] group-hover:text-[#0b0f14] transition-all duration-500">
-                      <Icon className="text-lg" />
-                    </div>
-                    <span className="text-xs font-mono text-[#84a98c]/40 font-semibold group-hover:text-[#84a98c]/80 transition-colors duration-500">
-                      {service.num}
-                    </span>
+                <div className="flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-[#84a98c]/10 text-[#84a98c]">
+                    <Icon className="text-xl" />
                   </div>
-
-                  {/* Copy */}
-                  <div className="space-y-1">
-                    <h3 className="text-base sm:text-lg font-bold text-[#f8fafc] tracking-tight group-hover:text-[#84a98c] transition-colors duration-300 font-sans">
-                      {service.title}
-                    </h3>
-                    <p className="text-xs text-[#cad2c5]/75 leading-relaxed font-light font-sans">
-                      {service.desc}
-                    </p>
-                  </div>
+                  <span className="text-xs font-mono text-[#84a98c]/40 font-semibold">{service.num}</span>
                 </div>
-
-                {/* Bottom hover bar */}
-                <div className="h-[1.5px] w-0 bg-[#84a98c] absolute bottom-0 left-0 group-hover:w-full transition-all duration-500" />
+                <div className="space-y-2">
+                  <h3 className="text-lg font-bold text-[#f8fafc]">{service.title}</h3>
+                  <p className="text-xs text-[#cad2c5]/70 leading-relaxed font-light">{service.desc}</p>
+                  <p className="text-[11px] text-[#84a98c]/90 leading-relaxed pt-1 border-t border-[#354f52]/10">{service.hoverDesc}</p>
+                </div>
               </motion.div>
             );
           })}
         </div>
+      </section>
+    );
+  }
 
+  // Desktop layout: Elliptical circular composition with mouse parallax
+  return (
+    <section 
+      ref={sectionRef}
+      id="services-section"
+      className="services-panel"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Background drifting glow orbs */}
+      <div className="services-bg-glow-1" />
+      <div className="services-bg-glow-2" />
+
+      {/* Center content block */}
+      <div className="services-center-content services-center-wrapper opacity-0 scale-75">
+        <span className="services-eyebrow">
+          SECTION 03 // WHAT I BUILD
+        </span>
+        <h2 className="services-title">
+          What I Build
+        </h2>
+        <p className="services-desc">
+          I transform ideas into impactful digital experiences through thoughtful engineering and modern technologies.
+        </p>
+        <div className="pt-2">
+          <PremiumButton 
+            href="#projects-section" 
+            icon={FiArrowRight} 
+            onClick={handleScrollToProjects}
+            data-tooltip="View Featured Work"
+          >
+            View Projects
+          </PremiumButton>
+        </div>
       </div>
+
+      {/* Orbital Cards List */}
+      {servicesData.map((service, index) => {
+        const Icon = service.icon;
+        return (
+          <div
+            key={index}
+            className={`orbit-card orbit-card-${index}`}
+            onMouseMove={handleCardMouseMove}
+          >
+            <div className="card-content-wrap">
+              {/* Header */}
+              <div className="card-header-row">
+                <div className="card-icon-container">
+                  <Icon className="text-xl" />
+                </div>
+                <span className="card-number">
+                  {service.num}
+                </span>
+              </div>
+
+              {/* Title & Copy */}
+              <div className="card-text-block">
+                <h3 className="card-title">
+                  {service.title}
+                </h3>
+                
+                {/* Default text */}
+                <p className="card-default-desc">
+                  {service.desc}
+                </p>
+
+                {/* Hover details section (revealed inside mask) */}
+                <p className="card-hover-details">
+                  {service.hoverDesc}
+                </p>
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </section>
   );
 };

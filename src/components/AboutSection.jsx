@@ -6,7 +6,7 @@ const AboutSection = () => {
   return (
     <section 
       id="about-section"
-      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 flex items-center bg-[#0b0f14] overflow-hidden px-6 md:px-12 lg:px-24 py-20 md:py-0 border-l border-[#354f52]/10"
+      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 flex items-center bg-[#0b0f14] overflow-hidden px-6 md:px-12 lg:px-24 py-20 md:py-0 border-b md:border-b-0 md:border-l border-[#354f52]/10"
     >
       {/* Background soft parallax layers */}
       <div 
@@ -34,7 +34,7 @@ const AboutSection = () => {
 
         {/* Title in Morganite Black */}
         <div className="overflow-hidden">
-          <h2 className="font-morganite text-[clamp(4.5rem,13vw,10rem)] font-black text-[#f8fafc] tracking-wide leading-[0.8] uppercase select-none">
+          <h2 className="font-morganite text-[clamp(2.5rem,13vw,10rem)] font-black text-[#f8fafc] tracking-wide leading-[0.8] uppercase select-none">
             <AnimatedText text="Who I Am" type="letter" delay={0.2} />
           </h2>
         </div>

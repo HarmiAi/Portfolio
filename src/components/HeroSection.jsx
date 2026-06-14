@@ -70,7 +70,7 @@ const HeroSection = () => {
       <div className="absolute top-[-30%] left-[-10%] w-[60%] h-[60%] bg-[#354f52]/10 rounded-full blur-[130px] pointer-events-none z-0" />
 
       {/* Main layout container (using semantic styling) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center z-10 px-6 md:px-12 lg:px-24">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center z-10 px-6 py-20 lg:py-0 md:px-12 lg:px-24">
         
         {/* Left Side: Content Column */}
         <div 
@@ -92,7 +92,7 @@ const HeroSection = () => {
 
           {/* Heading in Morganite Black */}
           <div className="overflow-hidden">
-            <h1 className="Morganite-heading text-[clamp(4.5rem,14vw,11rem)] uppercase select-none">
+            <h1 className="Morganite-heading text-[clamp(2.5rem,14vw,11rem)] uppercase select-none">
               <AnimatedText text="Harmi Pagada" type="letter" delay={0.2} />
             </h1>
           </div>

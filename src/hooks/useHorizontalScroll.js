@@ -26,7 +26,7 @@ export const useHorizontalScroll = (isLoading) => {
       // Since container has 7 panels, total width is 700vw, so translation is -600vw.
       const scrollAmount = -(container.scrollWidth - window.innerWidth);
 
-      // Create main pinned horizontal timeline with 11 snapping points
+      // Create main pinned horizontal timeline with 10 snapping points (0 to 10s duration)
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: trigger,
@@ -37,7 +37,7 @@ export const useHorizontalScroll = (isLoading) => {
           invalidateOnRefresh: true,
           anticipatePin: 1,
           snap: {
-            snapTo: [0, 1/11, 2/11, 4/11, 5/11, 6/11, 7/11, 8/11, 9/11, 10/11, 1.0],
+            snapTo: [0, 0.1, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
             duration: { min: 0.15, max: 0.4 },
             delay: 0.05,
             ease: "power2.out"
@@ -62,12 +62,12 @@ export const useHorizontalScroll = (isLoading) => {
       }, 4);
 
       // Part 3: Translate from Projects to Skills, Resume, Contact
-      // Translates x from -300vw to -600vw over duration 3 (starting at time 8)
+      // Translates x from -300vw to -600vw over duration 3 (starting at time 7)
       tl.to(container, {
         x: "-600vw",
         duration: 3,
         ease: "none"
-      }, 8);
+      }, 7);
 
       // Inline Hero Portrait Parallax Animation
       // - Translates rightward slower than the container for horizontal parallax depth when exiting (0 to 1)
@@ -118,27 +118,21 @@ export const useHorizontalScroll = (isLoading) => {
         3.0
       );
 
-      // Projects stacked slide fades (Panel 4) - Pauses at time 5 to 8
-      tl.to(".project-slide-0", { opacity: 0, duration: 0.4, ease: "power1.inOut" }, 5.3);
-      tl.to(".project-slide-1", { opacity: 1, duration: 0.4, ease: "power1.inOut" }, 5.3);
+      // Projects stacked slide fades (Panel 4) - Pauses at time 5 to 7
+      tl.to(".project-slide-0", { opacity: 0, duration: 0.4, ease: "power1.inOut" }, 5.5);
+      tl.to(".project-slide-1", { opacity: 1, duration: 0.4, ease: "power1.inOut" }, 5.5);
 
       tl.to(".project-slide-1", { opacity: 0, duration: 0.4, ease: "power1.inOut" }, 6.3);
       tl.to(".project-slide-2", { opacity: 1, duration: 0.4, ease: "power1.inOut" }, 6.3);
 
-      tl.to(".project-slide-2", { opacity: 0, duration: 0.4, ease: "power1.inOut" }, 7.3);
-      tl.to(".project-slide-3", { opacity: 1, duration: 0.4, ease: "power1.inOut" }, 7.3);
-
-      // Projects numbers progress indicator (Shifted relative to time 5 to 8)
+      // Projects numbers progress indicator (Shifted relative to time 5 to 7)
       tl.to(".proj-num-01", { color: "#84a98c", opacity: 1, duration: 0.1 }, 0);
       
-      tl.to(".proj-num-01", { color: "#354f52", opacity: 0.3, duration: 0.2 }, 5.3);
-      tl.to(".proj-num-02", { color: "#84a98c", opacity: 1, duration: 0.2 }, 5.3);
+      tl.to(".proj-num-01", { color: "#354f52", opacity: 0.3, duration: 0.2 }, 5.5);
+      tl.to(".proj-num-02", { color: "#84a98c", opacity: 1, duration: 0.2 }, 5.5);
 
       tl.to(".proj-num-02", { color: "#354f52", opacity: 0.3, duration: 0.2 }, 6.3);
       tl.to(".proj-num-03", { color: "#84a98c", opacity: 1, duration: 0.2 }, 6.3);
-
-      tl.to(".proj-num-03", { color: "#354f52", opacity: 0.3, duration: 0.2 }, 7.3);
-      tl.to(".proj-num-04", { color: "#84a98c", opacity: 1, duration: 0.2 }, 7.3);
 
     }, triggerRef);
 

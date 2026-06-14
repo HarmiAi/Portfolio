@@ -27,7 +27,7 @@ const ResumeSection = () => {
           >
             <span className="w-8 h-[1px] bg-[#84a98c]" />
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#84a98c] font-sans">
-              SECTION 06 // CV
+               CV
             </span>
           </motion.div>
           
@@ -128,7 +128,7 @@ const ResumeSection = () => {
               <ul className="space-y-2 pl-4 border-l-2 border-[#84a98c]/35 text-xs text-[#cad2c5]/80 font-light">
                 <li className="flex items-start space-x-1.5">
                   <span className="text-[#84a98c]">•</span>
-                  <span>Built and launched the EverFresh International export portal.</span>
+                  <span>Built and launched the EverFresh International export website.</span>
                 </li>
                 <li className="flex items-start space-x-1.5">
                   <span className="text-[#84a98c]">•</span>

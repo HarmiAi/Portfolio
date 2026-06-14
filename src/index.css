@@ -1,5 +1,14 @@
 @import "tailwindcss";
 @import "./styles/portfolio.css";
+@import "./styles/buttons.css";
+@import "./styles/hero.css";
+@import "./styles/about.css";
+@import "./styles/services.css";
+@import "./styles/projects.css";
+@import "./styles/skills.css";
+@import "./styles/resume.css";
+@import "./styles/contact.css";
+@import "./styles/animations.css";
 
 /* Base variables override and body default rules */
 body {

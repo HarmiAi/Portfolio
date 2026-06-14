@@ -5,43 +5,33 @@ import PremiumButton from './PremiumButton';
 const projectsData = [
   {
     num: "01",
-    title: "Restaurant AR Menu Platform",
-    desc: "Designed and developed a restaurant digitization platform featuring interactive ordering workflows and immersive WebXR concepts. Customers can view meals in 3D, customize toppings, and send orders directly.",
-    tech: ["React", "Three.js", "MongoDB", "Node.js", "Vercel"],
-    liveUrl: "#",
-    githubUrl: "#",
-    features: ["WhatsApp Ordering", "Restaurant Dashboard", "Full Stack Architecture", "Render + Vercel Deployment"],
+    title: "Lumière — AR Menu",
+    desc: "A premium WebXR restaurant menu platform mapping high-fidelity culinary assets into 3D environments. Customers preview menu items in augmented reality, customize toppings dynamically, and submit orders directly.",
+    tech: ["React", "Three.js", "React Three Fiber", "WebXR", "Rolldown"],
+    liveUrl: "https://restaurant-ar-menu-fawn.vercel.app/",
+    githubUrl: "https://github.com/harmi_pagada/restaurant-ar-menu",
+    features: ["Lumière Premium AR", "React Three Fiber", "3D Dish Previews", "Interactive Customizer"],
     mockupType: "restaurant"
   },
   {
     num: "02",
-    title: "Firebase Dashboard",
-    desc: "Real-time administrative operations utility showing connection metrics, database sync states, live active sessions, and detailed analytics graphs.",
-    tech: ["React.js", "Firebase Auth", "Realtime DB", "Chart.js"],
-    liveUrl: "#",
-    githubUrl: "#",
-    features: ["Live Session Sync", "Security Rules Auditor", "Interactive Charts", "Responsive Control Panel"],
+    title: "ETA Follow-Up Portal",
+    desc: "A real-time administrative manager dashboard built to track shipment progress, compute ETAs, and streamline logistics operations with dynamic messaging interfaces.",
+    tech: ["React.js", "Firebase Realtime DB", "Bootstrap", "Vite"],
+    liveUrl: "https://eta-dashboard-three.vercel.app/",
+    githubUrl: "https://github.com/harmi_pagada/eta-dashboard",
+    features: ["Real-time Status Sync", "Bootstrap Interface", "Interactive ETA Feeds", "Manager Portal Control"],
     mockupType: "dashboard"
   },
   {
     num: "03",
-    title: "Redux Finance Application",
-    desc: "A personal ledger platform managing accounting transactions, checking balances, budget allocations, and currency conversion trackers.",
-    tech: ["React", "Redux Toolkit", "Express.js", "MongoDB", "Tailwind"],
-    liveUrl: "#",
-    githubUrl: "#",
-    features: ["Redux State Cache", "Transaction Ledger", "Exchange Rates API", "Expense Category Audits"],
+    title: "Export Cost Calculator",
+    desc: "A robust price computation assistant for international trade. Businesses calculate shipping overheads, customs duties, taxes, and net margin profit percentages dynamically.",
+    tech: ["React", "Vite", "Vanilla CSS", "Tailwind CSS"],
+    liveUrl: "https://cost-calculator-vert.vercel.app/",
+    githubUrl: "https://github.com/harmi_pagada/export-cost-calculator",
+    features: ["Dynamic Duty Computations", "Custom Margins Breakdowns", "Export Assistant logic", "PDF Summary Exports"],
     mockupType: "finance"
-  },
-  {
-    num: "04",
-    title: "E-Commerce Platform",
-    desc: "Modern digital marketplace featuring dynamic inventory feeds, customized cart pipelines, secure checkout systems, and Stripe payment webhooks.",
-    tech: ["Vite", "Stripe API", "Node.js", "Tailwind CSS", "MongoDB"],
-    liveUrl: "#",
-    githubUrl: "#",
-    features: ["Stripe Checkout", "Admin Inventory Feed", "Automatic Webhooks", "Session Cart Cache"],
-    mockupType: "ecommerce"
   }
 ];
 
@@ -49,39 +39,38 @@ const ProjectsSection = () => {
   return (
     <section 
       id="projects-section"
-      className="relative w-full md:w-screen h-auto md:h-screen flex-shrink-0 bg-[#071714] overflow-hidden border-b md:border-b-0 md:border-l border-[#354f52]/10 z-10"
+      className="projects-section"
     >
       {/* Mobile layout: stacked view */}
-      <div className="block md:hidden px-6 py-20 space-y-20">
-        <div className="space-y-2 text-center">
-          <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#84a98c] font-sans">
-            SECTION 04 // PROJECTS
+      <div className="projects-mobile-wrap">
+        <div className="services-mobile-header">
+          <span className="services-mobile-eyebrow">
+             SECTION 04 // PROJECTS
           </span>
-          <h2 className="font-morganite text-5xl font-black text-[#f8fafc] uppercase">Featured Work</h2>
+          <h2 className="services-mobile-title">Featured Work</h2>
         </div>
 
         {projectsData.map((project, index) => (
-          <div key={index} className="space-y-6 border-b border-[#354f52]/20 pb-12">
-            <div className="space-y-4 font-sans">
-              <span className="text-5xl font-black text-[#84a98c]/35 font-mono">{project.num}</span>
-              <h3 className="text-2xl font-bold text-[#f8fafc]">{project.title}</h3>
-              <p className="text-sm text-[#cad2c5]/80 leading-relaxed font-light">{project.desc}</p>
+          <div key={index} className="projects-mobile-card">
+            <div className="projects-mobile-card-info" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <span className="projects-mobile-card-num">{project.num}</span>
+              <h3 className="services-mobile-card-title">{project.title}</h3>
+              <p className="services-mobile-card-desc">{project.desc}</p>
               
-              <div className="flex flex-wrap gap-2 pt-2">
+              <div className="featured-tags-row">
                 {project.tech.map((t, i) => (
-                  <span key={i} className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#354f52]/20 border border-[#354f52]/30 text-[#cad2c5]">{t}</span>
+                  <span key={i} className="featured-tag">{t}</span>
                 ))}
               </div>
             </div>
 
-            <div className="w-full h-[220px] rounded-xl bg-[#071714] border border-[#354f52]/20 flex items-center justify-center p-4">
+            <div className="projects-mobile-card-mockup">
               {project.mockupType === "restaurant" && <div className="text-[#84a98c] text-xs font-mono">Restaurant AR Platform Mockup</div>}
               {project.mockupType === "dashboard" && <div className="text-[#84a98c] text-xs font-mono">Firebase Sync Graph</div>}
-              {project.mockupType === "finance" && <div className="text-[#84a98c] text-xs font-mono">Redux Financial Charts</div>}
-              {project.mockupType === "ecommerce" && <div className="text-[#84a98c] text-xs font-mono">Stripe Checkout Simulator</div>}
+              {project.mockupType === "finance" && <div className="text-[#84a98c] text-xs font-mono">Cost Calculator Pricing Ledger</div>}
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="featured-ctas">
               <PremiumButton href={project.liveUrl} icon={FiExternalLink}>Live Demo</PremiumButton>
               <PremiumButton href={project.githubUrl} icon={FiGithub}>GitHub</PremiumButton>
             </div>
@@ -90,23 +79,21 @@ const ProjectsSection = () => {
       </div>
 
       {/* Desktop layout: Pinned absolute stacked slides */}
-      <div className="hidden md:block w-full h-full relative">
+      <div className="projects-desktop-wrap">
         {/* Center fixed vertical slide progress indicator */}
-        <div className="vertical-indicator top-[38%] font-mono text-sm">
-          <span className="proj-num-01 text-[#84a98c] transition-all duration-300">01</span>
+        <div className="vertical-indicator">
+          <span className="proj-indicator-num proj-num-01 active">01</span>
           <div className="indicator-line" />
-          <span className="proj-num-02 text-[#354f52] opacity-35 transition-all duration-300">02</span>
+          <span className="proj-indicator-num proj-num-02">02</span>
           <div className="indicator-line" />
-          <span className="proj-num-03 text-[#354f52] opacity-35 transition-all duration-300">03</span>
-          <div className="indicator-line" />
-          <span className="proj-num-04 text-[#354f52] opacity-35 transition-all duration-300">04</span>
+          <span className="proj-indicator-num proj-num-03">03</span>
         </div>
 
         {/* Slides list */}
         {projectsData.map((project, index) => (
           <div
             key={index}
-            className={`project-slide project-slide-${index} absolute inset-0 w-full h-full px-12 lg:px-24 grid grid-cols-12 gap-12 items-center`}
+            className={`project-slide project-slide-${index}`}
             style={{
               opacity: index === 0 ? 1 : 0,
               pointerEvents: index === 0 ? 'auto' : 'none',
@@ -114,25 +101,25 @@ const ProjectsSection = () => {
             }}
           >
             {/* Left Column: Info (5 columns) */}
-            <div className="col-span-5 flex flex-col justify-center space-y-5">
-              <div className="space-y-2">
-                <span className="text-xs font-mono font-bold text-[#84a98c] tracking-[0.2em] uppercase block">
+            <div className="project-left-col">
+              <div className="featured-title-wrap">
+                <span className="featured-label">
                   PROJECT {project.num}
                 </span>
                 
-                <h3 className="Morganite-heading text-[clamp(2.2rem,8vw,7rem)] uppercase select-none">
+                <h3 className="featured-title">
                   {project.title}
                 </h3>
               </div>
 
-              <p className="body-text text-sm leading-relaxed">
+              <p className="featured-desc">
                 {project.desc}
               </p>
 
               {/* Features list */}
-              <div className="space-y-1 text-xs text-[#cad2c5] font-light font-sans">
+              <div className="featured-list">
                 {project.features.map((feat, fIdx) => (
-                  <div key={fIdx} className="flex items-center space-x-2">
+                  <div key={fIdx} className="featured-list-item">
                     <FiCheck className="text-[#84a98c] text-[10px]" />
                     <span>{feat}</span>
                   </div>
@@ -140,11 +127,11 @@ const ProjectsSection = () => {
               </div>
 
               {/* Tech Tags */}
-              <div className="flex flex-wrap gap-1.5 pt-1">
+              <div className="featured-tags-row">
                 {project.tech.map((t, tIdx) => (
                   <span 
                     key={tIdx}
-                    className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#354f52]/20 border border-[#354f52]/40 text-[#cad2c5]/90"
+                    className="featured-tag"
                   >
                     {t}
                   </span>
@@ -152,7 +139,7 @@ const ProjectsSection = () => {
               </div>
 
               {/* Buttons with tooltips */}
-              <div className="flex space-x-4 pt-3">
+              <div className="featured-ctas">
                 <PremiumButton 
                   href={project.liveUrl} 
                   icon={FiExternalLink}
@@ -171,109 +158,79 @@ const ProjectsSection = () => {
             </div>
 
             {/* Spacer */}
-            <div className="col-span-1" />
+            <div style={{ gridColumn: 'span 1' }} />
 
             {/* Right Column: Visual Mockup (6 columns) */}
-            <div className="col-span-6 flex items-center justify-center">
-              <div className="w-[90%] xl:w-[85%] aspect-[4/3] rounded-2xl border border-[#354f52]/40 bg-[#071714]/80 shadow-2xl backdrop-blur-md relative overflow-hidden flex items-center justify-center p-6 hover:border-[#84a98c]/35 transition-all duration-500">
+            <div className="project-right-col">
+              <div className="project-mockup">
                 
                 {project.mockupType === "restaurant" && (
-                  <div className="w-full h-full relative">
-                    <div className="absolute left-0 bottom-0 w-[60%] p-4 rounded-xl bg-[#071714]/80 border border-[#354f52]/30 space-y-3 z-10">
-                      <div className="flex items-center justify-between text-[10px] font-mono border-b border-[#354f52]/20 pb-1.5 text-[#cad2c5]/40 font-sans">
-                        <span>sales_db.sql</span>
-                        <span className="text-[#84a98c] font-bold font-sans">ACTIVE</span>
+                  <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+                    <div className="project-mock-card-sales">
+                      <div className="project-mock-ledger-row">
+                        <span style={{ color: 'rgba(202, 210, 197, 0.4)', fontFamily: 'var(--font-sans)', fontSize: '10px' }}>sales_db.sql</span>
+                        <span style={{ color: 'var(--color-accent)', fontWeight: 'bold', fontFamily: 'var(--font-sans)', fontSize: '10px' }}>ACTIVE</span>
                       </div>
-                      <div className="flex items-end justify-between h-14 font-sans">
-                        <div className="w-[15%] h-[20%] bg-[#354f52]/40 rounded-t-sm" />
-                        <div className="w-[15%] h-[60%] bg-[#52796f]/40 rounded-t-sm" />
-                        <div className="w-[15%] h-[90%] bg-[#84a98c] rounded-t-sm" />
-                        <div className="w-[15%] h-[40%] bg-[#52796f]/40 rounded-t-sm" />
+                      <div className="featured-bar-graph" style={{ height: '3.5rem' }}>
+                        <div className="featured-bar dark" style={{ height: '20%' }} />
+                        <div className="featured-bar secondary" style={{ height: '60%' }} />
+                        <div className="featured-bar primary" style={{ height: '90%' }} />
+                        <div className="featured-bar secondary" style={{ height: '40%' }} />
                       </div>
                     </div>
 
-                    <div className="absolute right-0 top-0 w-[55%] p-3 rounded-xl bg-emerald-950/70 border border-emerald-800/40 space-y-1.5 z-20 rotate-3">
-                      <p className="text-[9px] font-bold text-white font-sans leading-none">WhatsApp Order Bot</p>
-                      <p className="text-[8px] text-[#cad2c5] leading-relaxed font-sans">Burger + Drink sent to kitchen. Table 4.</p>
-                      <div className="w-full text-right text-[7px] text-emerald-400 font-mono">14:02</div>
+                    <div className="project-mock-bot-msg">
+                      <p style={{ fontSize: '9px', fontWeight: 'bold', color: 'white', fontFamily: 'var(--font-sans)', lineHeight: '1' }}>WhatsApp Order Bot</p>
+                      <p style={{ fontSize: '8px', color: '#cad2c5', lineHeight: '1.4', fontFamily: 'var(--font-sans)' }}>Burger + Drink sent to kitchen. Table 4.</p>
+                      <div style={{ width: '100%', textAlign: 'right', fontSize: '7px', color: '#34d399', fontFamily: 'monospace' }}>14:02</div>
                     </div>
                   </div>
                 )}
 
                 {project.mockupType === "dashboard" && (
-                  <div className="w-full h-full flex flex-col justify-between font-mono text-xs">
-                    <div className="flex items-center justify-between border-b border-[#354f52]/30 pb-2">
-                      <span className="text-[#cad2c5]/40">// firebase_console</span>
-                      <span className="text-[#84a98c]">ONLINE</span>
+                  <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontFamily: 'monospace', fontSize: '12px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(53, 79, 82, 0.3)', paddingBottom: '0.5rem' }}>
+                      <span style={{ color: 'rgba(202, 210, 197, 0.4)' }}>// firebase_console</span>
+                      <span style={{ color: 'var(--color-accent)' }}>ONLINE</span>
                     </div>
-                    <div className="grid grid-cols-3 gap-3 my-auto">
-                      <div className="p-3 rounded-lg bg-[#071714]/80 border border-[#354f52]/20">
-                        <p className="text-[9px] text-[#cad2c5]/40 uppercase font-sans">Sessions</p>
-                        <p className="text-base font-bold text-[#f8fafc] mt-1 font-sans">1,402</p>
+                    <div className="featured-stats-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.5rem', margin: 'auto 0' }}>
+                      <div className="project-mock-console-card" style={{ padding: '0.75rem', borderRadius: '0.5rem', backgroundColor: 'rgba(11, 15, 20, 0.8)', border: '1px solid rgba(53, 79, 82, 0.2)' }}>
+                        <p style={{ fontSize: '9px', color: 'rgba(202, 210, 197, 0.4)', fontFamily: 'var(--font-sans)', textTransform: 'uppercase' }}>Sessions</p>
+                        <p style={{ fontSize: '1rem', fontWeight: 'bold', color: '#f8fafc', marginTop: '0.25rem', fontFamily: 'var(--font-sans)' }}>1,402</p>
                       </div>
-                      <div className="p-3 rounded-lg bg-[#071714]/80 border border-[#354f52]/20">
-                        <p className="text-[9px] text-[#cad2c5]/40 uppercase font-sans">DB Sync</p>
-                        <p className="text-base font-bold text-[#84a98c] mt-1 font-sans">0.4ms</p>
-                      </div>
-                      <div className="p-3 rounded-lg bg-[#071714]/80 border border-[#354f52]/20">
-                        <p className="text-[9px] text-[#cad2c5]/40 uppercase font-sans">CPU Load</p>
-                        <p className="text-base font-bold text-[#f8fafc] mt-1 font-sans">12%</p>
+                      <div className="project-mock-console-card" style={{ padding: '0.75rem', borderRadius: '0.5rem', backgroundColor: 'rgba(11, 15, 20, 0.8)', border: '1px solid rgba(53, 79, 82, 0.2)' }}>
+                        <p style={{ fontSize: '9px', color: 'rgba(202, 210, 197, 0.4)', fontFamily: 'var(--font-sans)', textTransform: 'uppercase' }}>DB Sync</p>
+                        <p style={{ fontSize: '1rem', fontWeight: 'bold', color: 'var(--color-accent)', marginTop: '0.25rem', fontFamily: 'var(--font-sans)' }}>0.4ms</p>
                       </div>
                     </div>
-                    <div className="w-full h-12 border border-[#354f52]/20 bg-[#071714]/50 rounded flex items-center justify-center text-[10px] text-[#cad2c5]/50 font-sans">
-                      Sync Status: All security rules audited.
+                    <div style={{ width: '100%', padding: '0.5rem 0', border: '1px solid rgba(53, 79, 82, 0.2)', backgroundColor: 'rgba(11, 15, 20, 0.5)', borderRadius: '0.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: 'rgba(202, 210, 197, 0.5)', fontFamily: 'var(--font-sans)' }}>
+                      Sync Status: Real-time ETA tracking active.
                     </div>
                   </div>
                 )}
 
                 {project.mockupType === "finance" && (
-                  <div className="w-full h-full flex flex-col justify-between font-mono text-xs">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[#cad2c5]/40">// accounting_ledger</span>
-                      <span className="text-[#cad2c5] font-bold font-sans">$12,480.00</span>
+                  <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontFamily: 'monospace', fontSize: '12px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <span style={{ color: 'rgba(202, 210, 197, 0.4)' }}>// cost_calculator</span>
+                      <span style={{ color: '#cad2c5', fontWeight: 'bold', fontFamily: 'var(--font-sans)' }}>EXPORT PRICING</span>
                     </div>
-                    <div className="space-y-2.5 my-auto">
-                      <div className="flex items-center justify-between text-[10px] border-b border-[#354f52]/20 pb-1">
-                        <span className="text-[#cad2c5] font-sans">Salary Credited</span>
-                        <span className="text-[#84a98c] font-sans">+$3,200.00</span>
+                    <div className="project-ledger-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', margin: 'auto 0' }}>
+                      <div className="project-mock-ledger-row">
+                        <span style={{ color: '#cad2c5', fontFamily: 'var(--font-sans)' }}>Shipping Overhead</span>
+                        <span style={{ color: '#f87171', fontFamily: 'var(--font-sans)' }}>-$3,200.00</span>
                       </div>
-                      <div className="flex items-center justify-between text-[10px] border-b border-[#354f52]/20 pb-1">
-                        <span className="text-[#cad2c5] font-sans">Stripe Checkout</span>
-                        <span className="text-[#84a98c] font-sans">+$150.00</span>
+                      <div className="project-mock-ledger-row">
+                        <span style={{ color: '#cad2c5', fontFamily: 'var(--font-sans)' }}>Customs Duties</span>
+                        <span style={{ color: '#f87171', fontFamily: 'var(--font-sans)' }}>-$1,150.00</span>
                       </div>
-                      <div className="flex items-center justify-between text-[10px] border-b border-[#354f52]/20 pb-1">
-                        <span className="text-[#cad2c5] font-sans">AWS Cloud hosting</span>
-                        <span className="text-red-400 font-sans">-$42.00</span>
-                      </div>
-                    </div>
-                    <div className="p-2 rounded bg-emerald-950/20 border border-emerald-800/20 text-[10px] text-emerald-400 font-sans">
-                      Redux Cache synced. Rates: 1 USD = 0.92 EUR
-                    </div>
-                  </div>
-                )}
-
-                {project.mockupType === "ecommerce" && (
-                  <div className="w-full h-full flex flex-col justify-between font-mono text-xs">
-                    <div className="flex items-center justify-between border-b border-[#354f52]/30 pb-2">
-                      <span className="text-[#cad2c5]/40">// shop_checkout</span>
-                      <span className="text-[#84a98c] font-bold font-sans">STRIPE</span>
-                    </div>
-                    <div className="p-4 rounded-xl bg-[#071714]/80 border border-[#354f52]/20 space-y-3 my-auto">
-                      <div className="flex items-center justify-between text-[10px] font-sans">
-                        <span className="text-[#cad2c5]">Subtotal</span>
-                        <span>$140.00</span>
-                      </div>
-                      <div className="flex items-center justify-between text-[10px] font-sans">
-                        <span className="text-[#cad2c5]">Taxes</span>
-                        <span>$11.20</span>
-                      </div>
-                      <div className="flex items-center justify-between text-xs font-bold border-t border-[#354f52]/20 pt-2 text-[#84a98c] font-sans">
-                        <span>Total Due</span>
-                        <span>$151.20</span>
+                      <div className="project-mock-ledger-row">
+                        <span style={{ color: '#cad2c5', fontFamily: 'var(--font-sans)' }}>Net Margin Profit</span>
+                        <span style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-sans)' }}>+$8,130.00</span>
                       </div>
                     </div>
-                    <div className="w-full py-2 bg-[#84a98c] text-[#071714] font-bold rounded text-center text-[10px] hover:bg-[#84a98c]/90 transition-colors duration-300 font-sans">
-                      SECURE CHECKOUT VIA STRIPE
+                    <div style={{ padding: '0.5rem', borderRadius: '0.25rem', backgroundColor: 'rgba(6, 78, 59, 0.2)', border: '1px solid rgba(6, 120, 87, 0.2)', fontSize: '10px', color: '#34d399', fontFamily: 'var(--font-sans)' }}>
+                      Pricing engine synced. Rates: 1 USD = 0.92 EUR
                     </div>
                   </div>
                 )}

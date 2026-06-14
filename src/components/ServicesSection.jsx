@@ -111,7 +111,7 @@ const ServicesSection = () => {
       >
         <div className="space-y-4 text-center">
           <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#84a98c] font-sans">
-            SECTION 03 // WHAT I BUILD
+             WHAT I BUILD
           </span>
           <h2 className="font-morganite text-5xl font-black text-[#f8fafc] uppercase">What I Build</h2>
           <p className="text-sm text-[#cad2c5]/80 max-w-sm mx-auto leading-relaxed font-sans font-light">
@@ -171,7 +171,7 @@ const ServicesSection = () => {
       {/* Center content block */}
       <div className="services-center-content services-center-wrapper opacity-0 scale-75">
         <span className="services-eyebrow">
-          SECTION 03 // WHAT I BUILD
+           WHAT I BUILD
         </span>
         <h2 className="services-title">
           What I Build

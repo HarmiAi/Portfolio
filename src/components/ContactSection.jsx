@@ -53,7 +53,7 @@ const ContactSection = () => {
           >
             <span className="w-8 h-[1px] bg-[#84a98c]" />
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#84a98c] font-sans">
-              SECTION 07 // CONNECT
+               CONNECT
             </span>
           </motion.div>
           

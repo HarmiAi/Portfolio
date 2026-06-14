@@ -39,7 +39,7 @@ const FeaturedProjectSection = () => {
             >
               <span className="w-8 h-[1px] bg-[#84a98c]" />
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#84a98c]">
-                SECTION 04 // FEATURED PROJECT
+                 FEATURED PROJECT
               </span>
             </motion.div>
             

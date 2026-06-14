@@ -1,0 +1,474 @@
+/* Vanilla CSS for Projects & Featured Project Sections */
+
+/* Base container for projects panels */
+.projects-section, .featured-section {
+  position: relative;
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  background-color: var(--color-bg);
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.featured-section {
+  display: flex;
+  align-items: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  border-left: 1px solid rgba(53, 79, 82, 0.1);
+}
+
+.projects-section {
+  border-bottom: 1px solid rgba(53, 79, 82, 0.1);
+}
+
+@media (min-width: 768px) {
+  .featured-section, .projects-section {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    border-bottom: 0;
+    border-left: 1px solid rgba(53, 79, 82, 0.1);
+  }
+}
+
+/* Drifting glow orbs */
+.featured-glow-orb-1 {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 400px;
+  height: 400px;
+  background-color: rgba(132, 169, 140, 0.05);
+  border-radius: 9999px;
+  filter: blur(120px);
+  -webkit-filter: blur(120px);
+  pointer-events: none;
+}
+
+.featured-glow-orb-2 {
+  position: absolute;
+  bottom: -10%;
+  right: 10%;
+  width: 350px;
+  height: 350px;
+  background-color: rgba(82, 121, 111, 0.1);
+  border-radius: 9999px;
+  filter: blur(100px);
+  -webkit-filter: blur(100px);
+  pointer-events: none;
+}
+
+/* Featured Section Grid */
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .featured-grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 3rem;
+  }
+}
+
+.featured-left-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem; /* space-y-6 */
+}
+
+@media (min-width: 768px) {
+  .featured-left-col {
+    grid-column: span 5;
+  }
+}
+
+.featured-right-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .featured-right-col {
+    grid-column: span 7;
+  }
+}
+
+/* Floating interactive dashboard mockup card */
+.featured-card {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background-color: rgba(7, 23, 20, 0.8);
+  border: 1px solid rgba(53, 79, 82, 0.4);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .featured-card {
+    position: absolute;
+    left: 5%;
+    width: 65%;
+  }
+}
+
+.featured-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(53, 79, 82, 0.3);
+}
+
+.featured-card-circle {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 9999px;
+}
+
+.featured-card-body {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+}
+
+.featured-bar-graph {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 5rem;
+  border-bottom: 1px solid rgba(53, 79, 82, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.featured-bar {
+  width: 12%;
+  border-top-left-radius: 0.125rem;
+  border-top-right-radius: 0.125rem;
+}
+
+.featured-bar.primary {
+  background-color: var(--color-accent);
+}
+
+.featured-bar.secondary {
+  background-color: rgba(82, 121, 111, 0.5);
+}
+
+.featured-bar.dark {
+  background-color: rgba(53, 79, 82, 0.5);
+}
+
+.featured-stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.featured-stat-box {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: rgba(7, 23, 20, 0.6);
+  border: 1px solid rgba(53, 79, 82, 0.2);
+}
+
+.featured-stat-label {
+  color: rgba(202, 210, 197, 0.4);
+}
+
+.featured-stat-value {
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.featured-stat-value.accent {
+  color: var(--color-accent);
+}
+
+.featured-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: block;
+}
+
+.featured-title {
+  font-family: var(--font-morganite);
+  font-size: clamp(2.2rem, 8vw, 7rem);
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
+  line-height: 0.8;
+}
+
+.featured-desc {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--color-neutral);
+  line-height: 1.6;
+}
+
+.featured-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--color-neutral);
+  font-family: var(--font-sans);
+}
+
+.featured-list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.featured-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  padding-top: 0.25rem;
+}
+
+.featured-tag {
+  font-size: 9px;
+  font-family: monospace;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: rgba(53, 79, 82, 0.2);
+  border: 1px solid rgba(53, 79, 82, 0.4);
+  color: rgba(202, 210, 197, 0.9);
+}
+
+.featured-ctas {
+  display: flex;
+  gap: 1rem;
+  padding-top: 0.75rem;
+}
+
+/* Projects Section Styling (Stacked Panel Deck Layout) */
+.projects-mobile-wrap {
+  display: block;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+@media (min-width: 768px) {
+  .projects-mobile-wrap {
+    display: none;
+  }
+}
+
+.projects-mobile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-bottom: 1px solid rgba(53, 79, 82, 0.2);
+  padding-bottom: 3rem;
+}
+
+.projects-mobile-card-num {
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(132, 169, 140, 0.35);
+  font-family: monospace;
+}
+
+.projects-mobile-card-mockup {
+  width: 100%;
+  height: 220px;
+  border-radius: 0.75rem;
+  background-color: #0f1720;
+  border: 1px solid rgba(53, 79, 82, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.projects-desktop-wrap {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .projects-desktop-wrap {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+}
+
+.project-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 3rem;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .project-slide {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+.project-left-col {
+  grid-column: span 5;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.project-right-col {
+  grid-column: span 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Premium mockups */
+.project-mockup {
+  width: 90%;
+  aspect-ratio: 4/3;
+  border-radius: 1rem;
+  border: 1px solid rgba(53, 79, 82, 0.4);
+  background-color: rgba(7, 23, 20, 0.8);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  transition: border-color 0.5s ease;
+}
+
+.project-mockup:hover {
+  border-color: rgba(132, 169, 140, 0.35);
+}
+
+@media (min-width: 1280px) {
+  .project-mockup {
+    width: 85%;
+  }
+}
+
+/* Individual project visual items */
+.project-mock-card-sales {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60%;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background-color: rgba(11, 15, 20, 0.8);
+  border: 1px solid rgba(53, 79, 82, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 10;
+}
+
+.project-mock-bot-msg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 55%;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: rgba(6, 78, 59, 0.7); /* emerald */
+  border: 1px solid rgba(4, 120, 87, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  z-index: 20;
+  transform: rotate(3deg);
+}
+
+.project-mock-console-card {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: rgba(11, 15, 20, 0.8);
+  border: 1px solid rgba(53, 79, 82, 0.2);
+}
+
+.project-mock-ledger-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  border-bottom: 1px solid rgba(53, 79, 82, 0.2);
+  padding-bottom: 0.25rem;
+}
+
+.project-mock-stripe-box {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background-color: rgba(11, 15, 20, 0.8);
+  border: 1px solid rgba(53, 79, 82, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.project-mock-stripe-btn {
+  width: 100%;
+  padding: 0.5rem 0;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-weight: 700;
+  border-radius: 0.25rem;
+  text-align: center;
+  font-size: 10px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease;
+}
+
+.project-mock-stripe-btn:hover {
+  background-color: rgba(132, 169, 140, 0.9);
+}

@@ -90,14 +90,14 @@ const HeroSection = () => {
 
       {/* Layer 4: Gradient Overlays for Text Legibility (Vignettes) */}
       {/* Horizontal Gradient (Left-to-Right) */}
-      <div 
+      {/* <div 
         className="absolute inset-0 z-5 pointer-events-none"
         style={{
           background: isMobile
             ? "linear-gradient(180deg, rgba(11, 15, 20, 0.85) 0%, rgba(11, 15, 20, 0.65) 50%, rgba(11, 15, 20, 0.85) 100%)"
             : "linear-gradient(90deg, rgba(11, 15, 20, 0.92) 0%, rgba(11, 15, 20, 0.7) 35%, rgba(11, 15, 20, 0.3) 70%, transparent 100%)"
         }}
-      />
+      /> */}
       {/* Bottom Gradient Vignette (Transitions smoothly to next vertical section) */}
       <div 
         className="absolute inset-0 z-5 pointer-events-none"
@@ -133,7 +133,7 @@ const HeroSection = () => {
           </div>
 
           {/* Supporting Heading */}
-          <div className="max-w-2xl">
+          <div className="max-w-lg">
             <h2 className="text-lg sm:text-2xl font-bold text-[#f8fafc] leading-snug font-sans">
               <AnimatedText 
                 text="Building impactful digital products through code, creativity, and emerging technologies."
@@ -148,7 +148,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 0.8, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xs sm:text-sm font-light text-[#cad2c5] leading-relaxed max-w-xl font-sans"
+            className="text-xs sm:text-sm font-light text-[#cad2c5] leading-relaxed max-w-lg font-sans"
           >
             Full Stack Developer specializing in React, Node.js, AI integrations, and immersive digital experiences.
           </motion.p>

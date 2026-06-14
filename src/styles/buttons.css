@@ -1,0 +1,69 @@
+/* Vanilla CSS for Button Components */
+
+.premium-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 1.5rem;
+  padding-right: 0.625rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 9999px;
+  background-color: var(--color-bg);
+  border: 1px solid rgba(53, 79, 82, 0.4);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+}
+
+.btn-bg-morph {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-accent);
+  border-radius: 9999px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.btn-label {
+  position: relative;
+  z-index: 10;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.75rem; /* text-xs */
+  letter-spacing: 0.1em; /* tracking-widest */
+  text-transform: uppercase;
+  transition: color 0.5s ease;
+}
+
+.btn-icon-wrapper {
+  position: relative;
+  z-index: 10;
+  margin-left: 1rem; /* ml-4 */
+  width: 2.25rem; /* w-9 */
+  height: 2.25rem; /* h-9 */
+  border-radius: 9999px;
+  background-color: #11161d;
+  border: 1px solid rgba(53, 79, 82, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.btn-icon-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--color-text);
+}
+
+/* Magnetic Button helper classes */
+.magnetic-btn-wrap {
+  display: inline-block;
+  cursor: pointer;
+}

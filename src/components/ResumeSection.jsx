@@ -63,7 +63,8 @@ const ResumeSection = () => {
               </p>
               <div>
                 <PremiumButton 
-                  href="#" 
+                  href="/Harmi_Pagada_CV.pdf" 
+                  download="Harmi_Pagada_CV.pdf"
                   icon={FiDownload}
                   data-tooltip="Save copy as PDF"
                 >

@@ -118,7 +118,7 @@ const ServicesSection = () => {
             I transform ideas into impactful digital experiences through thoughtful engineering and modern technologies.
           </p>
           <div className="pt-2">
-            <PremiumButton href="#projects-section" icon={FiArrowRight} onClick={handleScrollToProjects}>
+            <PremiumButton href="#" icon={FiArrowRight} onClick={handleScrollToProjects}>
               View Projects
             </PremiumButton>
           </div>
@@ -181,7 +181,7 @@ const ServicesSection = () => {
         </p>
         <div className="pt-2">
           <PremiumButton 
-            href="#projects-section" 
+            href="#" 
             icon={FiArrowRight} 
             onClick={handleScrollToProjects}
             data-tooltip="View Featured Work"

@@ -161,7 +161,7 @@ const HeroSection = () => {
             className="flex flex-wrap gap-4 items-center pt-2 pointer-events-auto"
           >
             <PremiumButton 
-              href="#about-section" 
+              href="#" 
               icon={FiArrowRight}
               data-tooltip="View About & Mission"
             >
@@ -169,9 +169,10 @@ const HeroSection = () => {
             </PremiumButton>
 
             <PremiumButton 
-              href="#resume-section" 
-              icon={FiDownload}
-              data-tooltip="Download Technical PDF"
+               href="/Harmi_Pagada_CV.pdf" 
+                                download="Harmi_Pagada_CV.pdf"
+                                icon={FiDownload}
+                                data-tooltip="Save copy as PDF"
             >
               Download Resume
             </PremiumButton>

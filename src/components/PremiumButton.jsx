@@ -31,6 +31,24 @@ const PremiumButton = ({ children, icon: Icon, href, onClick, className = "", ..
     setIsHovered(true);
   };
 
+  const handleClick = (e) => {
+    if (onClick) {
+      onClick(e);
+    }
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      const sectionName = href.substring(1).replace('-section', '');
+      if (window.scrollToSection) {
+        window.scrollToSection(sectionName);
+      } else {
+        const target = document.getElementById(href.substring(1));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  };
+
   const ButtonContent = () => (
     <>
       {/* Morphing background layer */}
@@ -81,6 +99,7 @@ const PremiumButton = ({ children, icon: Icon, href, onClick, className = "", ..
       <motion.a
         ref={ref}
         href={href}
+        onClick={handleClick}
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

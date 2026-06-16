@@ -9,7 +9,7 @@ const projectsData = [
     desc: "A premium WebXR restaurant menu platform mapping high-fidelity culinary assets into 3D environments. Customers preview menu items in augmented reality, customize toppings dynamically, and submit orders directly.",
     tech: ["React", "Three.js", "React Three Fiber", "WebXR", "Rolldown"],
     liveUrl: "https://restaurant-ar-menu-fawn.vercel.app/",
-    githubUrl: "https://github.com/harmi_pagada/restaurant-ar-menu",
+    githubUrl: "https://github.com/HarmiAi/restaurant-ar-menu",
     features: ["Lumière Premium AR", "React Three Fiber", "3D Dish Previews", "Interactive Customizer"],
     mockupType: "restaurant"
   },
@@ -19,7 +19,7 @@ const projectsData = [
     desc: "A real-time administrative manager dashboard built to track shipment progress, compute ETAs, and streamline logistics operations with dynamic messaging interfaces.",
     tech: ["React.js", "Firebase Realtime DB", "Bootstrap", "Vite"],
     liveUrl: "https://eta-dashboard-three.vercel.app/",
-    githubUrl: "https://github.com/harmi_pagada/eta-dashboard",
+    githubUrl: "https://github.com/HarmiAi/ETA-Dashboard",
     features: ["Real-time Status Sync", "Bootstrap Interface", "Interactive ETA Feeds", "Manager Portal Control"],
     mockupType: "dashboard"
   },
@@ -29,7 +29,7 @@ const projectsData = [
     desc: "A robust price computation assistant for international trade. Businesses calculate shipping overheads, customs duties, taxes, and net margin profit percentages dynamically.",
     tech: ["React", "Vite", "Vanilla CSS", "Tailwind CSS"],
     liveUrl: "https://cost-calculator-vert.vercel.app/",
-    githubUrl: "https://github.com/harmi_pagada/export-cost-calculator",
+    githubUrl: "https://github.com/HarmiAi/Export-chatbot",
     features: ["Dynamic Duty Computations", "Custom Margins Breakdowns", "Export Assistant logic", "PDF Summary Exports"],
     mockupType: "finance"
   }
@@ -45,7 +45,7 @@ const ProjectsSection = () => {
       <div className="projects-mobile-wrap">
         <div className="services-mobile-header">
           <span className="services-mobile-eyebrow">
-             SECTION 04 // PROJECTS
+              PROJECTS
           </span>
           <h2 className="services-mobile-title">Featured Work</h2>
         </div>
@@ -71,8 +71,8 @@ const ProjectsSection = () => {
             </div>
 
             <div className="featured-ctas">
-              <PremiumButton href={project.liveUrl} icon={FiExternalLink}>Live Demo</PremiumButton>
-              <PremiumButton href={project.githubUrl} icon={FiGithub}>GitHub</PremiumButton>
+              <PremiumButton href={project.liveUrl} icon={FiExternalLink} target="_blank" rel="noopener noreferrer" >Live Demo</PremiumButton>
+              <PremiumButton href={project.githubUrl} icon={FiGithub} target="_blank" rel="noopener noreferrer" >GitHub</PremiumButton>
             </div>
           </div>
         ))}
@@ -103,7 +103,7 @@ const ProjectsSection = () => {
             {/* Left Column: Info (5 columns) */}
             <div className="project-left-col">
               <div className="featured-title-wrap">
-                <span className="featured-label">
+                <span className="featured-label" style={{ marginBottom: '1rem'}}>
                   PROJECT {project.num}
                 </span>
                 

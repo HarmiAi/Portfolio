@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { FiLayers, FiServer, FiActivity } from 'react-icons/fi';
 import AnimatedText from './AnimatedText';
 
-const row1 = ["React", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Redux Toolkit", "Framer Motion", "GSAP"];
-const row2 = ["Node.js", "Express.js", "MongoDB", "Firebase Auth", "REST APIs", "Shopify", "GitHub", "Vercel"];
+const row1 = ["React", "JavaScript", "HTML5", "CSS3", "Bootstrap", "Redux Toolkit", "Framer Motion", "GSAP"];
+const row2 = ["Node.js", "Express.js", "MongoDB", "Shopify", "GitHub", "Vercel", "Render", "Netlify"];
 
 const SkillsSection = () => {
   return (

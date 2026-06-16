@@ -14,8 +14,8 @@ const contacts = [
   },
   {
     name: "GitHub",
-    value: "github.com/harmi_pagada",
-    url: "https://github.com/harmi_pagada",
+    value: "github.com/HarmiAi",
+    url: "https://github.com/HarmiAi",
     icon: FiGithub,
     glow: "rgba(82, 121, 111, 0.12)",
     tooltip: "View my code base"
@@ -23,7 +23,7 @@ const contacts = [
   {
     name: "LinkedIn",
     value: "linkedin.com/in/harmipagada",
-    url: "https://linkedin.com",
+    url: "https://www.linkedin.com/in/harmipagada/",
     icon: FiLinkedin,
     glow: "rgba(53, 79, 82, 0.18)",
     tooltip: "Connect on LinkedIn"
